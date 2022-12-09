@@ -228,7 +228,7 @@ s1:AddTextbox({
 })
 s1:AddTextbox({
 	Name = "Prediction",
-	Default = "0.121",
+	Default = "9.6",
 	TextDisappear = false,
 	Callback = function(bool)
 		getgenv().PredictionVelocity = bool
@@ -438,3 +438,96 @@ s2:AddTextbox({
 		getgenv().Key = bool
 	end	  
 })
+s2:AddButton({
+	Name = "Among Us (cs)",
+	Callback = function()
+                local Face = game.Players.LocalPlayer.Character.Head.face.Texture
+    local Mesh = game.Players.LocalPlayer.Character.LowerTorso.MeshId
+    local Size = game.Players.LocalPlayer.Character.LowerTorso.Size
+    
+    game.Players.LocalPlayer.Character.LeftHand.Transparency = 1
+    game.Players.LocalPlayer.Character.RightHand.Transparency = 1
+    game.Players.LocalPlayer.Character.RightUpperArm.Transparency = 1
+    game.Players.LocalPlayer.Character.RightLowerArm.Transparency = 1
+    game.Players.LocalPlayer.Character.LeftUpperArm.Transparency = 1
+    game.Players.LocalPlayer.Character.LeftLowerArm.Transparency = 1
+    game.Players.LocalPlayer.Character.UpperTorso.Transparency = 1
+    game.Players.LocalPlayer.Character.Head.Transparency = 1
+    game.Players.LocalPlayer.Character.RightUpperLeg.Transparency = 1
+    game.Players.LocalPlayer.Character.RightLowerLeg.Transparency = 1
+    game.Players.LocalPlayer.Character.LeftUpperLeg.Transparency = 1
+    game.Players.LocalPlayer.Character.LeftLowerLeg.Transparency = 1
+    game.Players.LocalPlayer.Character.LeftFoot.Transparency = 1
+    game.Players.LocalPlayer.Character.RightFoot.Transparency = 1
+    
+    game.Players.LocalPlayer.Character.Animate:Destroy()
+    game.Players.LocalPlayer.Character.Head.face.Transparency = 1
+    game.Players.LocalPlayer.Character.LowerTorso.MeshId = "rbxassetid://7229922898"
+    game.Players.LocalPlayer.Character.LowerTorso.Size = Vector3.new(0.3, 0.05, 0.15)
+    
+    for i,v in next, game:GetService('Players').LocalPlayer.Character:GetChildren() do
+       if v:IsA('Accessory') then
+           v:Destroy()
+       end
+    end
+end
+})
+s2:AddButton({
+	Name = "Russia Repair House (cs)",
+	Callback = function()
+                local Face = game.Players.LocalPlayer.Character.Head.face.Texture
+    local Mesh = game.Players.LocalPlayer.Character.LowerTorso.MeshId
+    local Size = game.Players.LocalPlayer.Character.LowerTorso.Size
+    
+    game.Players.LocalPlayer.Character.LeftHand.Transparency = 1
+    game.Players.LocalPlayer.Character.RightHand.Transparency = 1
+    game.Players.LocalPlayer.Character.RightUpperArm.Transparency = 1
+    game.Players.LocalPlayer.Character.RightLowerArm.Transparency = 1
+    game.Players.LocalPlayer.Character.LeftUpperArm.Transparency = 1
+    game.Players.LocalPlayer.Character.LeftLowerArm.Transparency = 1
+    game.Players.LocalPlayer.Character.UpperTorso.Transparency = 1
+    game.Players.LocalPlayer.Character.Head.Transparency = 1
+    game.Players.LocalPlayer.Character.RightUpperLeg.Transparency = 1
+    game.Players.LocalPlayer.Character.RightLowerLeg.Transparency = 1
+    game.Players.LocalPlayer.Character.LeftUpperLeg.Transparency = 1
+    game.Players.LocalPlayer.Character.LeftLowerLeg.Transparency = 1
+    game.Players.LocalPlayer.Character.LeftFoot.Transparency = 1
+    game.Players.LocalPlayer.Character.RightFoot.Transparency = 1
+    
+    game.Players.LocalPlayer.Character.Animate:Destroy()
+    game.Players.LocalPlayer.Character.Head.face.Transparency = 1
+    game.Players.LocalPlayer.Character.LowerTorso.TextureID = "rbxassetid://6136089880"
+    game.Players.LocalPlayer.Character.LowerTorso.MeshId = "rbxassetid://6136089733"
+    game.Players.LocalPlayer.Character.LowerTorso.Size = Vector3.new(0.3, 0.05, 0.15)
+    
+    for i,v in next, game:GetService('Players').LocalPlayer.Character:GetChildren() do
+       if v:IsA('Accessory') then
+           v:Destroy()
+       end
+    end
+end
+})
+
+s2:AddButton({
+	Name = "No Jump Cooldown",
+	Callback = function()
+       if not game.IsLoaded(game) then
+   game.Loaded.Wait(game.Loaded);
+end
+
+-- variables
+local IsA = game.IsA;
+local newindex = nil
+
+-- main hook
+newindex = hookmetamethod(game, "__newindex", function(self, Index, Value)
+   if not checkcaller() and IsA(self, "Humanoid") and Index == "JumpPower" then
+       return
+   end
+   
+   return newindex(self, Index, Value);
+end)
+    end
+})
+
+lib:Init()
